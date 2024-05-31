@@ -1,0 +1,477 @@
+﻿@{
+    ViewBag.Title = "Trang chủ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using PagedList.Mvc
+@model  PagedList.IPagedList<giadinhthoxinh.Models.tblProduct>
+
+@*<div class="main_slider">
+
+    </div>*@
+<link rel="stylesheet" href="~/Content/Site.css"/>
+<link rel="stylesheet" href="~/Content/style.css" />
+<link rel="stylesheet" href="~/Content/tiny-slider.css"/>
+<link rel="stylesheet" href="~/Content/thuonghieu.css" />
+
+<style>
+    /* Hero Section */
+    .hero {
+        background: #f5f5f5;
+        padding: 60px 0;
+    }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero .intro-excerpt p {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+    .hero-img-wrap img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    /* Why Choose Us Section */
+    .why-choose-section {
+        padding: 60px 0;
+    }
+
+        .why-choose-section .section-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .why-choose-section .feature {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+            .why-choose-section .feature .icon {
+                margin-bottom: 15px;
+            }
+
+            .why-choose-section .feature h3 {
+                font-size: 1.25rem;
+                margin-bottom: 10px;
+            }
+
+            .why-choose-section .feature p {
+                font-size: 0.875rem;
+            }
+
+    /* Team Section */
+    .team-section {
+        padding: 60px 0;
+        background: #f9f9f9;
+    }
+
+        .team-section .section-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .team-section img {
+            border-radius: 10px;
+        }
+
+        .team-section h3 {
+            font-size: 1.5rem;
+            margin: 15px 0;
+        }
+
+        .team-section .position {
+            color: #777;
+            font-size: 0.875rem;
+            margin-bottom: 15px;
+        }
+
+        .team-section p {
+            font-size: 0.875rem;
+        }
+
+    .testimonial-section {
+        padding: 60px 0;
+        background-color: #f8f9fa;
+    }
+
+    .testimonial-slider-wrap {
+        position: relative;
+    }
+
+    .testimonial-slider {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+    }
+
+        .testimonial-slider .item {
+            display: none;
+            width: 100%;
+            transition: all 0.5s ease-in-out;
+        }
+
+            .testimonial-slider .item.active {
+                display: block;
+            }
+
+    #testimonial-nav {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        transform: translateY(-50%);
+    }
+
+        #testimonial-nav .prev,
+        #testimonial-nav .next {
+            cursor: pointer;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 50%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+    .author-info {
+        margin-top: 20px;
+    }
+
+    .author-pic img {
+        border-radius: 50%;
+    }
+
+    body {
+        font-family: 'Arial', sans-serif;
+        color: #333;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        overflow-x:hidden;
+    }
+</style>
+
+<div style="width: 100vw;height:100vh;position:relative">
+    <div style="position:absolute; left:20px; top:50%;transform:translateY(-50%);cursor:pointer;z-index:100" id="prev">
+        <img src="~/Content/assets/images/prev.png" style="height:30px;width:30px" />
+    </div>
+    <div style="position:absolute; right:20px; top:50%;transform:translateY(-50%);cursor:pointer;z-index:100" id="next">
+        <img src="~/Content/assets/images/next.png" style="height:30px;width:30px" />
+    </div>
+    <div id="image-slider" style="margin-top:48px">
+        <img style="" src="~/Content/assets/images/Slider 2.jpg" alt="Image 1">
+        <img style="" src="~/Content/assets/images/Slider 3.jpg" alt="Image 2">
+        <img style="" src="~/Content/assets/images/Slider 3.jpg" alt="Image 3">
+        <img style="" src="~/Content/assets/images/anhhoa.jpeg" alt="Image 4">
+
+        <!-- Thêm các ảnh khác tại đây -->
+    </div>
+    <div class="button-container" style="position:absolute;bottom:100px;left:50%;transform:translateX(-50%)">
+        <button onclick="showImage(0)" class="active"></button>
+        <button onclick="showImage(1)"></button>
+        <button onclick="showImage(2)"></button>
+        <button onclick="showImage(3)"></button>
+        <!-- Thêm các button khác tại đây -->
+    </div>
+</div>
+
+
+
+<div class="mt-5">
+    <!-- Start Hero Section -->
+    @*<div class="hero">
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col-lg-5">
+                        <div class="intro-excerpt">
+                            <h1>About Us</h1>
+                            <p class="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
+                            <p><a href="" class="btn btn-secondary me-2">Shop Now</a><a href="#" class="btn btn-white-outline">Explore</a></p>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="hero-img-wrap">
+                            <img src="Content/assets/images/anhhoa.jpeg" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+    <!-- End Hero Section -->
+    <!-- Start Why Choose Us Section -->
+    <div class="why-choose-section">
+        <div class="container">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="section-title">Mémorie de Fleur</h2>
+                    <p>
+                        "Xin chào, bạn thân mến!
+                        Chúng mình là Mémoire de Fleur, người kể chuyện bằng ngôn ngữ của hoa. Ở đây,
+                        chúng mình lưu giữ những ngày xưa cũ và kể những câu chuyện nhuốm màu thời gian qua
+                        lăng kính của cánh hoa khô. Hi vọng dạo bước chốn này, bạn có thể tìm được một khoảnh khắc
+                        của riêng bản thân mình."
+                    </p>
+                    <!--
+                    <div class="row my-5">
+                        <div class="col-6 col-md-6">
+                            <div class="feature">
+                                <div class="icon">
+                                    <img src="~/Content/assets/images/truck.svg" alt="Image" class="imf-fluid">
+                                </div>
+                                <h3>Fast &amp; Free Shipping</h3>
+                                <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-6">
+                            <div class="feature">
+                                <div class="icon">
+                                    <img src="~/Content/assets/images/bag.svg" alt="Image" class="imf-fluid">
+                                </div>
+                                <h3>Easy to Shop</h3>
+                                <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-6">
+                            <div class="feature">
+                                <div class="icon">
+                                    <img src="~/Content/assets/images/support.svg" alt="Image" class="imf-fluid">
+                                </div>
+                                <h3>24/7 Support</h3>
+                                <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-6">
+                            <div class="feature">
+                                <div class="icon">
+                                    <img src="~/Content/assets/images/return.svg" alt="Image" class="imf-fluid">
+                                </div>
+                                <h3>Hassle Free Returns</h3>
+                                <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+                            </div>
+                        </div>
+
+                    </div>-->
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="img-wrap">
+                        <img src="~/Content/assets/images/About us.jpg" alt="Image" class="img-fluid" style="width:366px;height:419.094px">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- End Why Choose Us Section -->
+    <!-- Start Team Section -->
+    <div class="untree_co-section">
+        <div class="container">
+
+            <div class="row mb-5">
+                <div class="col-lg-5 mx-auto text-center">
+                    <h2 class="section-title">SẢN PHẨM</h2>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <!-- Start Column 1 -->
+                <div class="col-12 col-md-6 col-lg-4 mb-5 mb-md-0">
+                    <img src="~/Content/assets/images/Spham1.jpg" class="img-fluid mb-5" style="height:50vh ;width:100%; object-fit:cover">
+                    <h3 class="text-center"><a href="#"><span class="">TÚI THƠM TỪ HOA KHÔ</span></a></h3>
+                    
+                    
+                </div>
+                <!-- End Column 1 -->
+                <!-- Start Column 2 -->
+                <div class="col-12 col-md-6 col-lg-4 mb-5 mb-md-0">
+                    <img src="~/Content/assets/images/Spham 3.jpg" class="img-fluid mb-5" style="height:50vh ;width:100%; object-fit:cover">
+
+                    <h3 class="text-center"><a href="#"><span class="">SÁP THƠM HANDMADE</span> </a></h3>
+                    
+                    
+
+                </div>
+                <!-- End Column 2 -->
+                <!-- Start Column 3 -->
+                <div class="col-12 col-md-6 col-lg-4 mb-5 mb-md-0">
+                    <img src="~/Content/assets/images/Spham 2.jpg" class="img-fluid mb-5" style="height:50vh ;width:100%; object-fit:cover">
+                    <h3 class="text-center"><a href="#"><span class="">COMBO</span></a></h3>
+                    
+                </div>
+                <!-- End Column 3 -->
+                <!-- Start Column 4 -->
+
+
+
+            </div>
+        </div>
+    </div>
+    <!-- End Team Section -->
+    <!-- Start Testimonial Slider -->
+    
+
+    <div>
+
+
+        <div class="section_one full-height over-hide px-4 px-sm-0">
+            <div class="container">
+                <div class="row full-height justify-content-center">
+                    <div class="col-lg-10 col-xl-8 align-self-center padding-tb">
+                        <div class="section mx-auto text-center slider-height-padding">
+                            <input class="checkbox frst" type="radio" id="slide-1" name="slider" checked />
+                            <label for="slide-1"></label>
+                            <input class="checkbox scnd" type="radio" name="slider" id="slider-2" />
+                            <label for="slider-2"></label>
+                            <input class="checkbox thrd" type="radio" name="slider" id="slider-3" />
+                            <label for="slider-3"></label>
+                            <ul class="ul-v1">
+                                <li>
+                                    <span>MALE GOOFY FACE</span>
+                                </li>
+                                <li>
+                                    <span>TOY PIG</span>
+                                </li>
+                                <li>
+                                    <span>SHY PORTRAIT</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- End Testimonial Slider -->
+</div>
+
+<script>
+    let currentIndex = 0;
+    const images = document.querySelectorAll('#image-slider img');
+    const buttons = document.querySelectorAll('.button-container button');
+    const timer = setInterval(nextImage, 6000); // Change image every 4 seconds
+    const prev = document.querySelector('#prev');
+    const next = document.querySelector('#next');
+
+    prev.addEventListener("click", () => {
+        slideToPreviousImage();
+    });
+
+    next.addEventListener("click", () => {
+        slideToNextImage();
+    });
+
+    function slideToPreviousImage() {
+        const currentImage = images[currentIndex];
+        currentImage.classList.remove('active');
+        currentImage.style.transform = 'translateX(100%)';
+
+        buttons[currentIndex].classList.remove('active');
+
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        const previousImage = images[currentIndex];
+        previousImage.classList.add('active');
+        previousImage.style.transform = 'translateX(-100%)';
+        previousImage.style.transform = 'translateX(0)';
+
+        buttons[currentIndex].classList.add('active');
+    }
+
+    function slideToNextImage() {
+        const currentImage = images[currentIndex];
+        currentImage.classList.remove('active');
+        currentImage.style.transform = 'translateX(-100%)';
+
+        buttons[currentIndex].classList.remove('active');
+
+        currentIndex = (currentIndex + 1) % images.length;
+        const nextImage = images[currentIndex];
+        nextImage.classList.add('active');
+        nextImage.style.transform = 'translateX(100%)';
+        nextImage.style.transform = 'translateX(0)';
+
+        buttons[currentIndex].classList.add('active');
+    }
+
+    function nextImage() {
+        slideToNextImage();
+    }
+
+    // Show initial image
+    images[currentIndex].classList.add('active');
+    buttons[currentIndex].classList.add('active');
+
+    function showImage(index) {
+        images[currentIndex].classList.remove('active');
+        buttons[currentIndex].classList.remove('active');
+
+        currentIndex = index;
+
+        images[currentIndex].classList.add('active');
+        buttons[currentIndex].classList.add('active');
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const items = document.querySelectorAll('.testimonial-slider .item');
+        const prevBtn = document.querySelector('#testimonial-nav .prev');
+        const nextBtn = document.querySelector('#testimonial-nav .next');
+        let currentIndex = 0;
+        const intervalTime = 5000;
+        let autoSlide;
+
+        function showSlide(index) {
+            items.forEach((item, i) => {
+                item.classList.remove('active');
+                if (i === index) {
+                    item.classList.add('active');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % items.length;
+            showSlide(currentIndex);
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + items.length) % items.length;
+            showSlide(currentIndex);
+        }
+
+        function startAutoSlide() {
+            autoSlide = setInterval(nextSlide, intervalTime);
+        }
+
+        function stopAutoSlide() {
+            clearInterval(autoSlide);
+        }
+
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            stopAutoSlide();
+            startAutoSlide();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            stopAutoSlide();
+            startAutoSlide();
+        });
+
+        // Initialize the slideshow
+        showSlide(currentIndex);
+        startAutoSlide();
+    });
+
+
+</script>

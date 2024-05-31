@@ -1,0 +1,245 @@
+﻿#background-1 {
+    background: url('..Content/assets/images/Story1.jpg') no-repeat fixed center;
+    background-size: cover;
+    border-radius: 2%;
+    padding: 20px; /* Add padding for better readability */
+    position: relative; /* Ensure the positioning context */
+}
+
+    #background-1 blockquote {
+        background: rgba(0, 0, 0, 0.6); /* Semi-transparent dark background */
+        color: #fff; /* Bright text color */
+        padding: 20px; /* Add padding inside the blockquote */
+        border-radius: 10px; /* Rounded corners */
+        display: inline-block;
+    }
+
+    #background-1 .author-info {
+        color: #fff; /* Bright text color for author info */
+        margin-top: 20px; /* Add some space above author info */
+    }
+
+        #background-1 .author-info .author-pic img {
+            border-radius: 50%; /* Make the author picture circular */
+            border: 3px solid #fff; /* Add a white border around the picture */
+        }
+
+#background-2 {
+    background: url('../Content/assets/images/Story2.jpg') no-repeat fixed center;
+    background-size: cover;
+    border-radius: 2%;
+    padding: 20px; /* Add padding for better readability */
+    position: relative; /* Ensure the positioning context */
+}
+
+    #background-2 blockquote {
+        background: rgba(0, 0, 0, 0.6); /* Semi-transparent dark background */
+        color: #fff; /* Bright text color */
+        padding: 20px; /* Add padding inside the blockquote */
+        border-radius: 10px; /* Rounded corners */
+        display: inline-block;
+    }
+
+    #background-2 .author-info {
+        color: #fff; /* Bright text color for author info */
+        margin-top: 20px; /* Add some space above author info */
+    }
+
+        #background-2 .author-info .author-pic img {
+            border-radius: 50%; /* Make the author picture circular */
+            border: 3px solid #fff; /* Add a white border around the picture */
+        }
+
+#background {
+    background: url('../Content/assets/images/anhhoa.jpeg') no-repeat fixed center;
+    background-size: cover;
+    border-radius: 2%;
+    padding: 20px; /* Add padding for better readability */
+    position: relative; /* Ensure the positioning context */
+}
+
+    #background blockquote {
+        background: rgba(0, 0, 0, 0.6); /* Semi-transparent dark background */
+        color: #fff; /* Bright text color */
+        padding: 20px; /* Add padding inside the blockquote */
+        border-radius: 10px; /* Rounded corners */
+        display: inline-block;
+    }
+
+    #background .author-info {
+        color: #fff; /* Bright text color for author info */
+        margin-top: 20px; /* Add some space above author info */
+    }
+
+        #background .author-info .author-pic img {
+            border-radius: 50%; /* Make the author picture circular */
+            border: 3px solid #fff; /* Add a white border around the picture */
+        }
+
+.tns-outer {
+    padding: 0 !important
+}
+
+    .tns-outer [hidden] {
+        display: none !important
+    }
+    
+
+    .tns-outer [aria-controls], .tns-outer [data-action] {
+        cursor: pointer
+    }
+
+.tns-slider {
+    -webkit-transition: all 0s;
+    -moz-transition: all 0s;
+    transition: all 0s
+}
+
+    .tns-slider > .tns-item {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box
+    }
+
+.tns-horizontal.tns-subpixel {
+    white-space: nowrap
+}
+
+    .tns-horizontal.tns-subpixel > .tns-item {
+        display: inline-block;
+        vertical-align: top;
+        white-space: normal
+    }
+
+.tns-horizontal.tns-no-subpixel:after {
+    content: '';
+    display: table;
+    clear: both
+}
+
+.tns-horizontal.tns-no-subpixel > .tns-item {
+    float: left
+}
+
+.tns-horizontal.tns-carousel.tns-no-subpixel > .tns-item {
+    margin-right: -100%
+}
+
+.tns-no-calc {
+    position: relative;
+    left: 0
+}
+
+.tns-gallery {
+    position: relative;
+    left: 0;
+    min-height: 1px
+}
+
+    .tns-gallery > .tns-item {
+        position: absolute;
+        left: -100%;
+        -webkit-transition: transform 0s, opacity 0s;
+        -moz-transition: transform 0s, opacity 0s;
+        transition: transform 0s, opacity 0s
+    }
+
+    .tns-gallery > .tns-slide-active {
+        position: relative;
+        left: auto !important
+    }
+
+    .tns-gallery > .tns-moving {
+        -webkit-transition: all 0.25s;
+        -moz-transition: all 0.25s;
+        transition: all 0.25s
+    }
+
+.tns-autowidth {
+    display: inline-block
+}
+
+.tns-lazy-img {
+    -webkit-transition: opacity 0.6s;
+    -moz-transition: opacity 0.6s;
+    transition: opacity 0.6s;
+    opacity: 0.6
+}
+
+    .tns-lazy-img.tns-complete {
+        opacity: 1
+    }
+
+.tns-ah {
+    -webkit-transition: height 0s;
+    -moz-transition: height 0s;
+    transition: height 0s
+}
+
+.tns-ovh {
+    overflow: hidden
+}
+
+.tns-visually-hidden {
+    position: absolute;
+    left: -10000em
+}
+
+.tns-transparent {
+    opacity: 0;
+    visibility: hidden
+}
+
+.tns-fadeIn {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    z-index: 0
+}
+
+.tns-normal, .tns-fadeOut {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    z-index: -1
+}
+
+.tns-vpfix {
+    white-space: nowrap
+}
+
+    .tns-vpfix > div, .tns-vpfix > li {
+        display: inline-block
+    }
+
+.tns-t-subp2 {
+    margin: 0 auto;
+    width: 310px;
+    position: relative;
+    height: 10px;
+    overflow: hidden
+}
+
+.tns-t-ct {
+    width: 2333.3333333%;
+    width: -webkit-calc(100% * 70 / 3);
+    width: -moz-calc(100% * 70 / 3);
+    width: calc(100% * 70 / 3);
+    position: absolute;
+    right: 0
+}
+
+    .tns-t-ct:after {
+        content: '';
+        display: table;
+        clear: both
+    }
+
+    .tns-t-ct > div {
+        width: 1.4285714%;
+        width: -webkit-calc(100% / 70);
+        width: -moz-calc(100% / 70);
+        width: calc(100% / 70);
+        height: 10px;
+        float: left
+    }
+
+/*# sourceMappingURL=sourcemaps/tiny-slider.css.map */
